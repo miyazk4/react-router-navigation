@@ -1,0 +1,21 @@
+.mainNavigation {
+  .mainList li a {
+    text-decoration: none;
+  }
+}
+
+.fillColor {
+  color: red;
+}
+
+.aboutNav {
+  .SecondaryNav {
+    display: none;
+  }
+
+  &:hover {
+    .SecondaryNav {
+      display: block;
+    }
+  }
+}

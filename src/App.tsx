@@ -1,24 +1,48 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "./App.scss";
+import Home from "./home/Home";
+import WhoWeAre from "./whoweare";
+import { Route, NavLink, Switch } from "react-router-dom";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <nav className="mainNavigation">
+        <ul className="mainList">
+          <li>
+            <NavLink to="/" activeClassName="fillColor" exact={true}>
+              Homepage
+            </NavLink>
+          </li>
+          <li className="aboutNav">
+            <NavLink
+              to="/WhoWeAre"
+              activeClassName="fillColor"
+              onClick={e => e.preventDefault()}
+            >
+              Who we are
+            </NavLink>
+            <div className="SecondaryNav">
+              <ul>
+                <li>
+                  <NavLink to={`/WhoWeAre/aboutUs`}>About Us</NavLink>
+                </li>
+                <li>
+                  <NavLink to={`/WhoWeAre/contacts`}>Contacts</NavLink>
+                </li>
+              </ul>
+            </div>
+          </li>
+        </ul>
+      </nav>
+      <Switch>
+        <Route path="/WhoWeAre">
+          <WhoWeAre />
+        </Route>
+        <Route path="/">
+          <Home />
+        </Route>
+      </Switch>
     </div>
   );
 }
